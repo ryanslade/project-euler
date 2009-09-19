@@ -5,7 +5,7 @@ class Helper
     return n * factorial(n-1)
   end
 
-  def self.is_prime?(n)
+  def self.prime?(n)
     if (n == 1) 
       return false
   	elsif (n < 4) 
@@ -26,6 +26,23 @@ class Helper
   		end
   		return true
   	end
+  end
+  
+  def self.factors(n)
+    factors = [1]
+    (2..n/2).each do |x|
+      if (n % x == 0)
+        factors << x
+        a = n/x
+        factors << a
+        break if a < x
+      end
+    end
+    factors.uniq - [n]
+  end
+  
+  def self.abundant?(n)
+    factors(n).inject(0) { |mem, var| mem += var } > n
   end
 
 end

@@ -5,7 +5,7 @@ def primes(limit)
   count = 1
   i = 3
   loop do
-    if (Helper.is_prime?(i))
+    if (Helper.prime?(i))
       count += 1
       yield [i,count]
       break if count == limit

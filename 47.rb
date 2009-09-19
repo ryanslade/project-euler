@@ -3,7 +3,7 @@ require "helper"
 def get_prime_factors(n)
   factors = []
   (2..n/2).each do |x|
-    factors << x if (n % x == 0) && Helper.is_prime?(x)
+    factors << x if (n % x == 0) && Helper.prime?(x)
   end
   factors
 end
