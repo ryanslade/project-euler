@@ -2,7 +2,12 @@ class Helper
 
   def self.factorial(n)
     return 1 if (n == 0) || (n == 1)
-    return n * factorial(n-1)
+    total = n
+    while n > 1 do
+      n -= 1
+      total = total*n
+    end
+    total
   end
 
   def self.prime?(n)
@@ -43,6 +48,10 @@ class Helper
   
   def self.abundant?(n)
     factors(n).inject(0) { |mem, var| mem += var } > n
+  end
+  
+  def self.combinations(n, r)
+    factorial(n) / (factorial(r)*factorial(n-r))
   end
 
 end
