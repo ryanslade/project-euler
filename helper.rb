@@ -53,5 +53,10 @@ class Helper
   def self.combinations(n, r)
     factorial(n) / (factorial(r)*factorial(n-r))
   end
+  
+  def self.pandigital?(n)
+    digits = n.to_s.each_char.to_a.collect { |c| c.to_i }.sort
+    digits == (1..n.to_s.length).to_a
+  end
 
 end
