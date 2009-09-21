@@ -14,10 +14,12 @@ end
 
 count = 0
 
+helper = Helper.new
+
 (2..1000000).each do |n|
-  if (Helper.is_prime?(n))
+  if (helper.isprime(n) == 1)
     digits = rotations(n.to_s.each_char.to_a)
-    if digits.all? { |d| Helper.is_prime?(d.to_s.to_i) }
+    if digits.all? { |d| helper.isprime(d.to_s.to_i) == 1 }
       count += 1
       puts n
     end

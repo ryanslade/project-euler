@@ -4,6 +4,8 @@ def quadratic(a,b,n)
   n*n + a*n + b
 end
 
+helper = Helper.new
+
 longest = 0
 la = 0
 lb = 0
@@ -11,7 +13,7 @@ lb = 0
 (-1000..1000).each do |a|
   (-1000..1000).each do |b|
     n = 0
-    while Helper.prime?(quadratic(a,b,n)) do
+    while helper.isprime(quadratic(a,b,n)) == 1 do
       n += 1
     end
     if n > longest
