@@ -1,8 +1,6 @@
-def fib(a,b,limit,&block)
-  yield a
-  fib(b, (a+b), limit, &block) unless (b) > limit
+def fib(limit, nums=[1,2])
+  next_num = nums[-1]+nums[-2]
+  return (next_num > limit) ? nums : fib(limit, nums << next_num)
 end
 
-total = 0
-fib(1,2,4000000) {|x| total += x if (x%2 == 0)}
-puts total
+puts fib(4000000).select { |n| n % 2 == 0 }.inject(0) { |m, v| m+v }
