@@ -8,4 +8,4 @@ palindromes = []
   palindromes << n if palindrome?(n) && palindrome?(n,2)
 end
 
-puts palindromes.inject(0) { |mem, var| mem += var }
+puts palindromes.inject(0) { |mem, var| mem + var }

@@ -14,7 +14,7 @@ end
 
 def word_value(word)
   letters = ("A".."Z").to_a
-  word.each_char.to_a.inject(0) { |mem, var| mem += letters.index(var)+1 }
+  word.each_char.to_a.inject(0) { |mem, var| mem + letters.index(var)+1 }
 end
 
 words = File.new("words.txt", "r").read.scan(/"(.*?)"/).sort.flatten

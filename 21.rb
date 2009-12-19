@@ -1,6 +1,6 @@
 class Array
   def sum
-    self.inject(0) { |mem, var| mem += var }
+    self.inject(0) { |mem, var| mem + var }
   end
 end
 

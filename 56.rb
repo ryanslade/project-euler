@@ -1,5 +1,5 @@
 def digital_sum(a,b) 
-  (a**b).to_s.each_char.to_a.collect { |x| x.to_i }.inject(0) { |mem, var| mem += var }
+  (a**b).to_s.each_char.to_a.collect { |x| x.to_i }.inject(0) { |mem, var| mem + var }
 end
 
 largest = 0

@@ -22,6 +22,6 @@ while t_primes.length < 11 do
   n += 1
 end
 
-sum = t_primes.inject(0) { |mem, var| mem += var }
+sum = t_primes.inject(0) { |mem, var| mem + var }
 puts "Sum: #{sum}"
 
