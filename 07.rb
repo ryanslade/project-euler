@@ -3,14 +3,12 @@ require "helper"
 def primes(limit)
 	count = 0
 	n = 1
-	while true
+	while count < limit do
 		if Helper.prime?(n)
 			count += 1
 			puts "#{count}: #{n}"
 		end
-		if count == limit
-			break
-		end
+		
 		n += 1
 	end
 end
