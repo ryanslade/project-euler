@@ -1,33 +1,23 @@
-object HelloWorld 
+object Euler14
 {
-    def next_number(x: BigInt):BigInt =
-    {
-        if (x % 2 == 0)
-        {
-            return x / 2
-        }
-        else
-        {
-            return (x*3)+1
-        }
-    }
-
-    def get_chain(start: BigInt):List[BigInt] =
-    {
-        var chain = List[BigInt]()
-        var x = start
-
-        while (x != 1)
-        {
-            chain = chain :+ x
-            x = next_number(x)
-        }
-
-        chain = chain :+ BigInt(1)
-        
-        return chain
-    }
-
+    def get_chain(n: Long, c: Int = 0): Int = 
+	{
+		if (n == 1) 
+		{
+			return c + 1
+		}
+		else
+		{
+			if(n % 2 == 0) 
+			{
+				return get_chain(n / 2, c+1)
+			}
+			else
+			{
+				return get_chain(3 * n + 1, c+1)
+			}
+		} 
+	}
 
     def main(args: Array[String])
     {
@@ -35,12 +25,14 @@ object HelloWorld
 
         for (i <- (1 to 1000000))
         {
-            var length = get_chain(i).length
-            if (length > longest)
-            {
-                longest = length
-                println(i + ", length: " + length)
-            }
+        	var length = get_chain(i)
+
+	        if (length > longest)
+	        {
+	        	longest = length
+	            println(i + ", length: " + length)
+	        }
         }
+
     }
 }

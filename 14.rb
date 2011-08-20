@@ -1,21 +1,14 @@
-def calc_chain(n, &block)
-  yield n
-  return 1 if n == 1
-  
-  if (n%2 == 0)
-    return calc_chain(n/2, &block)
-  else
-    return calc_chain(3*n+1, &block)
-  end
+def chain_length(n, count=0)
+  return count+1 if n == 1
+  return (n%2 == 0) ? chain_length(n/2, count+1) : chain_length(3*n+1, count+1)
 end
 
 longest = 0
 
-1000000.downto(1).each do |n|
-  chain = []
-  calc_chain(n) { |x| chain << x }
-  if (chain.length > longest)
-    longest = chain.length
-    puts "#{n}, length: #{chain.length} "
+1.upto(1000000).each do |n|
+  length = chain_length(n)
+  if (length > longest)
+    longest = length
+    puts "#{n}, length: #{length}"
   end
 end
