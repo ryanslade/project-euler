@@ -23,7 +23,7 @@ object Euler14
     {
         var longest = 0
 
-        for (i <- (1 to 1000000))
+        for (i <- (1 to 1000000).par)
         {
         	var length = get_chain(i)
 
