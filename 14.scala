@@ -25,7 +25,7 @@ object Euler14
 
         for (i <- (1 to 1000000))
         {
-        	var length = get_chain(i)
+        	val length = get_chain(i)
 
 	        if (length > longest)
 	        {
