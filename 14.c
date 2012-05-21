@@ -6,7 +6,7 @@ int main()
     long i;
     long count = 0;
 
-    for (i = 1; i < 2000000; i++)
+    for (i = 1; i < 1000000; i++)
     {
         count = 0;
         calculateChain(i, &count);
