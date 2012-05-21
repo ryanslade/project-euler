@@ -9,8 +9,7 @@ func main() {
 	var i uint = 1
 
 	for i < 1000000 {
-		var count uint = 0
-		calculateChain(i, &count)
+		var count = calculateChain(i)
 		if count > longest {
 			longest = count
 			fmt.Println(count)
@@ -20,16 +19,15 @@ func main() {
 	}
 }
 
-func calculateChain(n uint, count *uint) uint {
-	*count++
-
-	if n == 1 {
-		return 1
-	} else if (n % 2) == 0 {
-		return calculateChain(n/2, count)
-	} else {
-		return calculateChain(3*n+1, count)
+func calculateChain(n uint) uint {
+	var count uint = 0
+	for n != 1 {
+		if (n % 2) == 0 {
+			n = n / 2
+		} else {
+			n = 3*n + 1
+		}
+		count++
 	}
-
-	return 0
+	return count + 1
 }

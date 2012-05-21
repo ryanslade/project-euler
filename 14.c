@@ -8,8 +8,7 @@ int main()
 
     for (i = 1; i < 1000000; i++)
     {
-        count = 0;
-        calculateChain(i, &count);
+        count = calculateChain(i);
         if (count > longest)
         {
             longest = count;
@@ -19,20 +18,18 @@ int main()
     }
 }
 
-int calculateChain(long n, long* count)
+int calculateChain(long n)
 {
-    ++*count;
+    long count = 0;
 
-    if (n == 1)
-    {
-        return 1;
+    while (n != 1) {
+        if (n%2 == 0) {
+            n = n/2;
+        } else {
+            n = 3*n+1;
+        }
+        count++;
     }
-    else if ((n % 2) == 0)
-    {
-        return calculateChain(n/2, count);
-    }
-    else
-    {
-        return calculateChain((3*n)+1, count);
-    }
+    
+    return count + 1;
 }
