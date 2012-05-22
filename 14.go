@@ -9,7 +9,7 @@ func main() {
 	var i uint = 1
 
 	for i < 1000000 {
-		var count = calculateChain(i)
+		count := calculateChain(i)
 		if count > longest {
 			longest = count
 			fmt.Println(count)
