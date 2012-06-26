@@ -2,7 +2,7 @@ package euler
 
 import "math"
 
-func IsPrime(n uint) bool {
+func IsPrime(n uint64) bool {
 	if n == 1 {
 		return false
 	}
@@ -19,8 +19,8 @@ func IsPrime(n uint) bool {
 		return false
 	}
 
-	r := uint(math.Sqrt(float64(n)))
-	f := uint(5)
+	r := uint64(math.Sqrt(float64(n)))
+	f := uint64(5)
 
 	for f <= r {
 		if n%f == 0 {
