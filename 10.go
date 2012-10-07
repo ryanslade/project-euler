@@ -1,11 +1,11 @@
-package main
+package ten
 
 import (
 	"./euler"
 	"fmt"
 )
 
-func main() {
+func calculate() {
 	total := uint64(0)
 
 	for i := uint64(1); i < 2000001; i++ {
